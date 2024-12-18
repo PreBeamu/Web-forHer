@@ -376,6 +376,15 @@ body::-webkit-scrollbar-thumb {
 
 /*-------------------- RESPONSIVE --------------------*/
 
+@media only screen and (max-width: 600px) {
+
+    .column {
+        -ms-flex: 30%;
+        flex: 30%;
+        max-width: 30%;
+    }
+}
+
 @media only screen and (min-width: 600px) {
 
     .home_title {
