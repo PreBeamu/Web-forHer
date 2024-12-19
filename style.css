@@ -7,8 +7,10 @@
     --body-font: "Mitr", sans-serif;
     --second-font: "Sriracha", serif;
     --biggest-font-size: 4rem;
+    --bigger-font-size: 2.5rem;
     --big-font-size: 1.5rem;
-    --normal-font-size: 0.938rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.938rem;
     /*-- COLORS --*/
     --body-color: #ffffff;
     --contianer-color: #ff6ea6;
@@ -16,6 +18,7 @@
     --first-color: #ff6ea6;
     --first-color-alt: #ff2a7b;
     --dark-color: #b01a54;
+    --light-color: #ffa6c8;
     /*-- INDEXS --*/
     --top-index: 100;
 }
@@ -30,12 +33,13 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 button,
 body {
     font-family: var(--body-font);
-    font-size: var(--normal-font-size);
+    font-size: var(--small-font-size);
 }
 
 body {
@@ -143,14 +147,14 @@ body::-webkit-scrollbar-thumb {
 }
 
 .home_desc {
-    font-size: var(--normal-font-size);
+    font-size: var(--small-font-size);
     line-height: 1.1rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 .start_button {
-    font-size: var(--normal-font-size);
+    font-size: var(--small-font-size);
     background-color: var(--first-color);
     text-decoration: none;
     color: #ffffff;
@@ -169,13 +173,11 @@ body::-webkit-scrollbar-thumb {
 .wave_top {
     top: 0px;
     position: absolute;
-    filter: drop-shadow(0px -5px 5px #000000a6);
     animation: 2s anim-fadeIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
 }
 
 .wave_bottom {
     bottom: 0px;
-    filter: drop-shadow(0px -5px 5px #000000a6);
     position: absolute;
     margin-bottom: -1px;
     animation: 2s anim-fadeIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
@@ -229,11 +231,46 @@ body::-webkit-scrollbar-thumb {
     animation: 2s anim-fadeIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
 }
 
-.story_data {
+.story_header {
+    justify-self: center;
+    width: fit-content;
+    text-align: center;
+    margin-left: 5px;
+    padding-bottom: 1rem;
+}
+
+.story_header h1 {
+    font-size: var(--biggest-font-size);
+    font-family: var(--second-font);
+    font-weight: bold;
+    color: #ffffff;
+    margin-left: 20px;
+    text-shadow: 0 3px 0px var(--first-color-alt);
+}
+
+.story_header h2 {
+    font-size: var(--big-font-size);
+    font-family: var(--second-font);
+    font-weight: normal;
+    color: #ffffff;
+    margin-top: -35px;
+    margin-right: 50px;
+    text-shadow: 0 3px 0px var(--first-color-alt);
+}
+
+.story_header h3 {
+    font-size: var(--normal-font-size);
+    font-weight: normal;
+    color: #ffffff;
+    margin-top: -5px;
+    text-shadow: 0 3px 0px var(--first-color-alt);
+}
+
+.story_cards {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 2.5vw;
+    column-gap: 1.5vw;
     row-gap: 0.5rem;
     grid-template-columns: auto auto auto;
     padding-top: 2rem;
@@ -243,15 +280,39 @@ body::-webkit-scrollbar-thumb {
     margin-inline: 5%;
 }
 
-.story_card {
+.story_cards .card {
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    fill: none;
-    border-radius: 0.5rem;
-    border-style: solid;
-    border-width: 2px;
+    background-color: #ffffff;
+    border-radius: 10px;
     color: #ffffff;
     position: relative;
-    padding: 30% 10vw;
+    aspect-ratio: 1/1;
+    width: 10rem;
+    margin: 1%;
+    box-shadow: 0 0 10px #00000064;
+}
+
+.story_cards .card h1 {
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    font-size: var(--biggest-font-size);
+    font-family: var(--second-font);
+    color: var(--dark-color);
+    font-weight: bold;
+}
+
+.story_cards .card p {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: #000000;
+    bottom: 5%;
+    font-size: var(--big-font-size);
+    font-family: var(--second-font);
+    font-weight: normal;
 }
 
 /*-------------------- HOME BACKGROUND EFFECTS --------------------*/
@@ -427,7 +488,7 @@ body::-webkit-scrollbar-thumb {
     }
 
     .home_desc {
-        font-size: calc(var(--normal-font-size) + 0.25rem);
+        font-size: calc(var(--small-font-size) + 0.25rem);
         line-height: 1.3rem;
         margin-top: 1.75rem;
         margin-bottom: 1.25rem;
