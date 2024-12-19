@@ -230,13 +230,7 @@ body::-webkit-scrollbar-thumb {
 
 .story_data {
     position: relative;
-    text-align: center;
-    padding-top: 1rem;
-}
-
-.story_gallery {
     display: flex;
-    flex-wrap: wrap;
     padding: 0 4px;
     padding-top: 2rem;
     padding-bottom: 3.5rem;
@@ -244,17 +238,34 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.column {
-    flex: 25%;
-    max-width: 25%;
-    padding: 0 4px;
+.stack {
+    width: 50%;
+    max-width: 300px;
+    transition: .25s ease;
+    border-radius: 0.25rem;
+
+    &:hover {
+        transform: translatey(-2%);
+    }
 }
 
-.column img {
-    margin-top: 8px;
-    vertical-align: middle;
+.card {
+    aspect-ratio: 3 / 2;
+    background-color: #FFF;
+    border-radius: 0.25rem;
+    position: relative;
+    transition: .15s ease;
+    cursor: pointer;
+    padding: 5% 5% 5% 5%;
+    box-shadow: 0 0 24px #00000098;
+}
+
+.image {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0.3rem;
+    background-color: #EEE;
+    aspect-ratio: 1 / 1;
+    position: relative;
 }
 
 /*-------------------- HOME BACKGROUND EFFECTS --------------------*/
@@ -376,15 +387,6 @@ body::-webkit-scrollbar-thumb {
 
 /*-------------------- RESPONSIVE --------------------*/
 
-@media only screen and (max-width: 600px) {
-
-    .column {
-        -ms-flex: 30%;
-        flex: 30%;
-        max-width: 30%;
-    }
-}
-
 @media only screen and (min-width: 600px) {
 
     .home_title {
@@ -398,11 +400,5 @@ body::-webkit-scrollbar-thumb {
         line-height: 1.3rem;
         margin-top: 1.75rem;
         margin-bottom: 1.25rem;
-    }
-
-    .column {
-        -ms-flex: 30%;
-        flex: 30%;
-        max-width: 30%;
     }
 }
