@@ -166,15 +166,16 @@ body::-webkit-scrollbar-thumb {
     background-color: var(--first-color-alt);
 }
 
-.wave_upper {
-    top: 0%;
+.wave_top {
+    top: 0px;
     position: absolute;
+    filter: drop-shadow(0px -5px 5px #000000a6);
     animation: 2s anim-fadeIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
 }
 
 .wave_bottom {
     bottom: 0px;
-    filter: drop-shadow(0px -5px 0px #ff8800a6);
+    filter: drop-shadow(0px -5px 5px #000000a6);
     position: absolute;
     margin-bottom: -1px;
     animation: 2s anim-fadeIn cubic-bezier(0.175, 0.885, 0.32, 1.275) 1;
@@ -231,44 +232,74 @@ body::-webkit-scrollbar-thumb {
 .story_data {
     position: relative;
     display: flex;
-    padding: 0 4px;
+    flex-wrap: wrap;
+    column-gap: 2.5vw;
+    row-gap: 0.5rem;
+    grid-template-columns: auto auto auto;
     padding-top: 2rem;
-    padding-bottom: 3.5rem;
+    padding-bottom: 2rem;
     justify-content: center;
     align-items: center;
+    margin-inline: 5%;
 }
 
-.stack {
-    width: 50%;
-    max-width: 300px;
-    transition: .25s ease;
-    border-radius: 0.25rem;
-
-    &:hover {
-        transform: translatey(-2%);
-    }
-}
-
-.card {
-    aspect-ratio: 3 / 2;
-    background-color: #FFF;
-    border-radius: 0.25rem;
+.story_card {
+    text-align: center;
+    fill: none;
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 2px;
+    color: #ffffff;
     position: relative;
-    transition: .15s ease;
-    cursor: pointer;
-    padding: 5% 5% 5% 5%;
-    box-shadow: 0 0 24px #00000098;
-}
-
-.image {
-    width: 100%;
-    border-radius: 0.3rem;
-    background-color: #EEE;
-    aspect-ratio: 1 / 1;
-    position: relative;
+    padding: 30% 10vw;
 }
 
 /*-------------------- HOME BACKGROUND EFFECTS --------------------*/
+
+.wave_bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.wave_bottom .wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    position: absolute;
+    top: -178px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+    filter: brightness(0) invert(70%) sepia(27%) saturate(5662%) hue-rotate(299deg) brightness(101%) contrast(102%);
+}
+
+.wave_bottom .wave:nth-of-type(2) {
+    top: -155px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+}
+
+@keyframes wave {
+    0% {
+        margin-left: 0;
+    }
+
+    100% {
+        margin-left: -1600px;
+    }
+}
+
+@keyframes swell {
+
+    0%,
+    100% {
+        transform: translate3d(0, -25px, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 5px, 0);
+    }
+}
 
 .circles {
     position: absolute;
@@ -285,7 +316,7 @@ body::-webkit-scrollbar-thumb {
     list-style: none;
     width: 20px;
     height: 20px;
-    background: #ff6ea68b;
+    background: #ff6ea6e3;
     animation: animate 25s linear infinite;
     bottom: -150px;
 
@@ -400,5 +431,14 @@ body::-webkit-scrollbar-thumb {
         line-height: 1.3rem;
         margin-top: 1.75rem;
         margin-bottom: 1.25rem;
+    }
+
+    .story_data {
+        column-gap: 2.5vw;
+        row-gap: 0.5rem;
+    }
+
+    .story_card {
+        padding: 11.5% 5vw;
     }
 }
